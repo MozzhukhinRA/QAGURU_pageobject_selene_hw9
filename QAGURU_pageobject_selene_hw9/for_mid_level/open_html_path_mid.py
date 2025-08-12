@@ -76,4 +76,3 @@ class RegistrationPage:
             publish,
             address
         ))
-

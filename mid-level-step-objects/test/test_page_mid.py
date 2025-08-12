@@ -1,4 +1,4 @@
-from QAGURU_pageobject_selene_hw9.open_html_path import PhotoPage, BrowserPage, RegistrationPage
+from QAGURU_pageobject_selene_hw9.for_mid_level.open_html_path_mid import PhotoPage, BrowserPage, RegistrationPage
 
 
 def test_requirement_form():
