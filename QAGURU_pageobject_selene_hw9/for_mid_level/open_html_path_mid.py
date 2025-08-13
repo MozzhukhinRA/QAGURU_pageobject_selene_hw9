@@ -1,4 +1,5 @@
 import os
+from dataclasses import dataclass
 
 from selene import be, browser, have
 
@@ -10,6 +11,7 @@ class PhotoPage:
         return import_file
 
 
+@dataclass
 class BrowserPage:
 
     def students_registration_first_name(self, value):
@@ -23,22 +25,23 @@ class BrowserPage:
         browser.element('#userEmail').should(be.visible).type(value)
 
 
-    def students_registration_gender(self):
-        browser.all('.custom-control-input').element_by(have.value('Other')).element('..').click()
+    def students_registration_gender(self, value):
+        browser.all('.custom-control-input').element_by(have.value(value)).element('..').click()
 
 
     def students_registration_phone(self, value):
         browser.element('#userNumber').should(be.visible).type(value)
 
 
-    def students_registration_date_of_birth(self, year, moth):
+    def students_registration_date_of_birth(self, year, moth, day):
         browser.element('#dateOfBirthInput').should(be.visible).click()
         browser.element('.react-datepicker__month-select').type(moth)
         browser.element('.react-datepicker__year-select').type(year)
-        browser.element('.react-datepicker__day--015').click()
+        browser.element(f'.react-datepicker__day--0{day}').click()
+        return f'{day} {moth},{year}'
 
-    def students_registration_subject(self):
-        browser.element('#subjectsInput').type('Arts').press_enter().type('Accounting').press_enter()
+    def students_registration_subject(self, value):
+        browser.element('#subjectsInput').type(value).press_enter()
 
     def students_registration_checkbox(self):
         browser.all('.custom-control').element_by(have.exact_text('Sports')).click()

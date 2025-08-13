@@ -14,16 +14,16 @@ def test_requirement_form():
     personal_data.students_registration_mail('Ivanov@mail.ru')
 
     # выбор чекбокса Female
-    personal_data.students_registration_gender()
+    personal_data.students_registration_gender('Other')
 
     # ввод номера телефона
     personal_data.students_registration_phone('9871234567')
 
     # ввод даты
-    personal_data.students_registration_date_of_birth('2000', 'April')
+    birth_date = personal_data.students_registration_date_of_birth('2000', 'April', '10')
 
     # заполнение области subject
-    personal_data.students_registration_subject()
+    personal_data.students_registration_subject("Art")
 
     # выбор чекбокса Hobbies
     personal_data.students_registration_checkbox()
@@ -49,8 +49,8 @@ def test_requirement_form():
         'Ivanov@mail.ru',
         'Other',
         '9871234567',
-        '15 April,2000',
-        'Arts, Accounting',
+        birth_date,
+        'Arts',
         'Sports',
         'photo.jpeg',
         'publish',
