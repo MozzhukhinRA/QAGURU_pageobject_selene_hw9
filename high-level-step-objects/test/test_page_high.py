@@ -1,3 +1,4 @@
+from QAGURU_pageobject_selene_hw9.for_high_level.form_validator import FormValidator
 from QAGURU_pageobject_selene_hw9.for_high_level.open_html_path_high import PhotoPage, BrowserPage, RegistrationPage
 from QAGURU_pageobject_selene_hw9.for_high_level.user import UserPage
 
@@ -58,3 +59,6 @@ def test_requirement_form():
         user["address"],
         user["region"]
     )
+
+    # 2. Проверяем форму (новый код)
+    FormValidator.validate_form(user)
