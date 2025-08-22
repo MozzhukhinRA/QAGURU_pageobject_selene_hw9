@@ -10,7 +10,7 @@ class PhotoPage:
         return import_file
 
 
-class BrowserPage:
+class BrowserPage():
 
     def students_registration_first_name(self, value):
         browser.element('#firstName').should(be.visible).type(value)
@@ -18,6 +18,7 @@ class BrowserPage:
 
     def students_registration_last_name(self, value):
         browser.element('#lastName').should(be.visible).type(value)
+
 
     def students_registration_mail(self, value):
         browser.element('#userEmail').should(be.visible).type(value)
@@ -31,11 +32,12 @@ class BrowserPage:
         browser.element('#userNumber').should(be.visible).type(value)
 
 
-    def students_registration_date_of_birth(self, year, moth):
+    def students_registration_date_of_birth(self, year, moth, day):
         browser.element('#dateOfBirthInput').should(be.visible).click()
         browser.element('.react-datepicker__month-select').type(moth)
         browser.element('.react-datepicker__year-select').type(year)
-        browser.element('.react-datepicker__day--015').click()
+        browser.element(f'.react-datepicker__day--0{day}').click()
+        return f'{day} {moth},{year}'
 
     def students_registration_subject(self, value):
         browser.element('#subjectsInput').type(value).press_enter()
@@ -62,14 +64,14 @@ class RegistrationPage:
     def press_submit(self):
         browser.element('#submit').press_enter()
 
-    def assert_form(self, full_name, mail, gender, phone, birth, sub, hobbies, picture, address, region):
+    def assert_form(self, full_name, mail, gender, phone, birth_day, sub, hobbies, picture, address, region):
         browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
         browser.all('.table-responsive td:nth-child(2)').should(have.texts(
             full_name,
             mail,
             gender,
             phone,
-            birth,
+            birth_day,
             sub,
             hobbies,
             picture,
