@@ -8,7 +8,7 @@ def test_requirement_form():
     personal_data = BrowserPage()
     get_send = RegistrationPage()
     user = User()
-    form = FormValidator
+    form = FormValidator()
 
     # заполнение личных данных
     personal_data.students_registration_first_name(user.first_name)
