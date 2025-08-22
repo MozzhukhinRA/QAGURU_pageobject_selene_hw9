@@ -2,6 +2,10 @@ import os
 
 from selene import be, browser, have
 
+class FormPage:
+    def open(self):
+        browser.open('/')
+        return self
 
 class PhotoPage:
 
