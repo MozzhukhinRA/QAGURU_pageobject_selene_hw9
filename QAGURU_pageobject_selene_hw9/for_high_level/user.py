@@ -7,7 +7,7 @@ class User:
     first_name = random.choice(["Max", "Pavel", "Alex", "Skot"])
     last_name = random.choice(["Kuznetsov", "Alekin", "Stepanov", "Pierro"])
     mail = f'{first_name.lower()}.{last_name.lower()}@gmail.com'
-    day = random.choice(['10','9', '19', '28'])
+    day = random.choice(['10','11', '19', '28'])
     moth = random.choice(["April", "February", "May", "September"])
     year = random.randint(1950, 2025)
     gender = random.choice(["Male", "Female", "Other"])
