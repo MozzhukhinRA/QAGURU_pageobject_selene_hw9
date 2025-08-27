@@ -45,7 +45,7 @@ def test_requirement_form():
     personal_data.students_registration_city()
 
     # вызов submit
-    get_send.press_submit()
+    get_send.register_form()
 
     # проверка формы
     form.validate_form(user)

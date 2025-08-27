@@ -65,7 +65,7 @@ class BrowserPage():
 
 class RegistrationPage:
 
-    def press_submit(self):
+    def register_form(self):
         browser.element('#submit').press_enter()
 
     def assert_form(self, full_name, mail, gender, phone, birth_day, sub, hobbies, picture, address, region):
