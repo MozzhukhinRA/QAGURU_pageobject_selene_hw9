@@ -9,8 +9,8 @@ def test_requirement_form():
     user = User()
     form = FormValidator()
 
-    # вызов submit
+    # Заполнение регистрационной формы
     get_send.register_form(user)
 
-    # проверка формы
+    # Проверка заполнения формы
     form.validate_form(user)
